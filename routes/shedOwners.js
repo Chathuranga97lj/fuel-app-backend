@@ -5,7 +5,6 @@ const router = express.Router();
 router.post('/register', async (req, res) => {
     let shedOwner = new ShedOwner({
         name: req.body.name,
-        shedName: req.body.shedName,
         userName: req.body.userName,
         password: req.body.password
     });

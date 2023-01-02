@@ -6,10 +6,6 @@ const shedOwnerSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    shedName: {
-        type: String,
-        required: true
-    },
     userName: {
         type: String,
         requred: true
