@@ -18,10 +18,12 @@ const api = process.env.API_URL;
 
 
 // import routers
-const shedOwnerRouter = require('./routes/shedOwners')
+const shedOwnerRouter = require('./routes/shedOwners');
+const vehiOwnerRouter = require('./routes/vehiOwners');
 
 // set api routers
-app.use(`${api}/register`, shedOwnerRouter)
+app.use(`${api}/shedown`, shedOwnerRouter);
+app.use(`${api}/vehiown`, vehiOwnerRouter);
 
 
 // connect db

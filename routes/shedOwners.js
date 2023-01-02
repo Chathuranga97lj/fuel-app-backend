@@ -2,7 +2,7 @@ const {ShedOwner} = require('../models/shedOwner');
 const express = require('express');
 const router = express.Router();
 
-router.post('/shedowner', async (req, res) => {
+router.post('/register', async (req, res) => {
     let shedOwner = new ShedOwner({
         name: req.body.name,
         shedName: req.body.shedName,
