@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "��#\u0000 \u0000f\u0000u\u0000e\u0000l\u0000-\u0000a\u0000p\u0000p\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000\r\u0000 \u0000\r\u0000 \u0000#\u0000#\u0000 \u0000i\u0000n\u0000i\u0000t\u0000 \u0000n\u0000p\u0000m\u0000 \u0000p\u0000a\u0000c\u0000k\u0000a\u0000g\u0000e\u0000s\u0000\r\u0000 \u0000\r\u0000 \u0000n\u0000p\u0000m\u0000 \u0000i\u0000n\u0000i\u0000t\u0000 \u0000-\u0000y\u0000\r\u0000 \u0000",
   "main": "app.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
@@ -20,6 +19,7 @@
   },
   "homepage": "https://github.com/Chathuranga97lj/fuel-app-backend#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "nodemon": "^2.0.20"
   }
