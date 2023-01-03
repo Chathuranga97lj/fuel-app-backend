@@ -9,6 +9,7 @@ router.post('/setfeed', async (req, res) => {
         arrivalTime: req.body.arrivalTime,
         departTime: req.body.departTime,
         waitingTime: req.body.waitingTime,
+        isWaiting: req.body.isWaiting,
     });
 
     feed = await feed.save();

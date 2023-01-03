@@ -21,6 +21,10 @@ const feedSchema = mongoose.Schema({
     waitingTime: {
         type: Number,
         default: 0
+    },
+    isWaiting: {
+        type: Boolean,
+        default: true
     }
 });
 
