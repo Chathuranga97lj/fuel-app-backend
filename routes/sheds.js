@@ -19,6 +19,17 @@ router.post('/register', async (req, res) => {
     res.send(shed);
 })
 
+
+// get shed list
+router.get('/list', async (req, res) => {
+    const shedList = await Shed.find();
+
+    if(!shedList) {
+        res.status(500).json({success: false})
+    }
+    res.send(shedList);
+})
+
 // update shed fuel availability
 router.put('/:id', async(req, res) => {
     const shed = await Shed.findByIdAndUpdate(
@@ -34,5 +45,7 @@ router.put('/:id', async(req, res) => {
     
     res.send(shed);
 })
+
+
 
 module.exports = router;
