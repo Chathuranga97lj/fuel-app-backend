@@ -13,7 +13,7 @@ function authJwt() {
             `${api}/vehiown/register`,
             `${api}/shedown/register`,
             `${api}/vehiown/login`,
-            `${api}/shedown/login`
+            `${api}/shedown/login`,
         ]
     });
 }

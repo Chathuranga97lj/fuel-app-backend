@@ -37,7 +37,7 @@ router.post('/login', async (req, res) => {
     if(shedOwner && bcrypt.compareSync(req.body.password, shedOwner.passwordHash)){
         const token = jwt.sign(
             {
-                userId: shedOwner.id,
+                userName: shedOwner.userName,
                 isAdmin: shedOwner.isAdmin
             },
             secret,
