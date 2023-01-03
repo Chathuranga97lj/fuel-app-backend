@@ -14,6 +14,9 @@ function authJwt() {
             `${api}/shedown/register`,
             `${api}/vehiown/login`,
             `${api}/shedown/login`,
+
+            `${api}/shed/list`,
+            {url: /\/api\/shed(.*)/ , methods: ['PUT', 'OPTIONS'] },
         ]
     });
 }
