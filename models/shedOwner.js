@@ -10,7 +10,7 @@ const shedOwnerSchema = mongoose.Schema({
         type: String,
         requred: true
     },
-    password: {
+    passwordHash: {
         type: String,
         required: true
     }
