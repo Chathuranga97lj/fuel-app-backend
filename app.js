@@ -21,11 +21,13 @@ const api = process.env.API_URL;
 const shedOwnerRouter = require('./routes/shedOwners');
 const vehiOwnerRouter = require('./routes/vehiOwners');
 const shedRouter = require('./routes/sheds');
+const feedRouter = require('./routes/feeds');
 
 // set api routers
 app.use(`${api}/shedown`, shedOwnerRouter);
 app.use(`${api}/vehiown`, vehiOwnerRouter);
 app.use(`${api}/shed`, shedRouter);
+app.use(`${api}/feed`, feedRouter);
 
 
 // connect db
