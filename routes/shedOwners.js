@@ -1,8 +1,11 @@
 const {ShedOwner} = require('../models/shedOwner');
 const express = require('express');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const router = express.Router();
 
+
+// register shed owner
 router.post('/register', async (req, res) => {
     let shedOwner = new ShedOwner({
         name: req.body.name,
@@ -17,6 +20,36 @@ router.post('/register', async (req, res) => {
     }
 
     res.send(shedOwner);
+});
+
+
+// login shed owner
+router.post('/login', async (req, res) => {
+    // check user name
+    const shedOwner = await ShedOwner.findOne({userName: req.body.userName});
+    const secret = process.env.secret;
+
+    if(!shedOwner){
+        return res.status(400).send('The Shed owner is not found');
+    }
+
+    // check password
+    if(shedOwner && bcrypt.compareSync(req.body.password, shedOwner.passwordHash)){
+        const token = jwt.sign(
+            {
+                userId: shedOwner.id,
+                isAdmin: shedOwner.isAdmin
+            },
+            secret,
+            {
+                expiresIn: '1d'
+            }
+        )
+
+        return res.status(200).send({shedOwner: shedOwner.userName, token: token});
+    } else {
+        res.status(400).send('Password is Wrong !');
+    }
 })
 
 module.exports = router;

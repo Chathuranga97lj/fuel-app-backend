@@ -5,6 +5,8 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const authJwt = require('./auth/jwt');
+const errorHandler = require('./auth/errorHandler');
 
 app.use(cors());
 // http request
@@ -13,6 +15,8 @@ app.options('*', cors());
 // for indentify post request json file format (Middleware)
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
+app.use(authJwt());
+app.use(errorHandler);
 
 const api = process.env.API_URL;
 
