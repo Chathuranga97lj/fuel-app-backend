@@ -2,6 +2,7 @@ const {Shed} = require('../models/shed');
 const express = require('express');
 const router = express.Router();
 
+// register shed owner
 router.post('/register', async (req, res) => {
     let shed = new Shed({
         owner: req.body.owner,
@@ -15,6 +16,22 @@ router.post('/register', async (req, res) => {
         return res.status(404).send('The Shed cannot be created!');
     }
 
+    res.send(shed);
+})
+
+// update shed fuel availability
+router.put('/:id', async(req, res) => {
+    const shed = await Shed.findByIdAndUpdate(
+        req.params.id,
+        {
+            availability: req.body.availability
+        },
+        {new: true}
+    )
+
+    if(!shed) 
+        return res.status(404).send('The order cannot be created !');
+    
     res.send(shed);
 })
 
