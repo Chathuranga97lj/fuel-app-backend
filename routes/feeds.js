@@ -21,4 +21,19 @@ router.post('/setfeed', async (req, res) => {
     res.send(feed);
 })
 
+router.put('/:id', async (req, res) => {
+  const feedItem = await Feed.findByIdAndUpdate(
+    req.params.id,
+    {
+      departTime: req.body.departTime,
+      isWaiting: false
+    },
+    { new: true }
+  )
+
+  if (!feedItem)
+    return res.status(404).send('The order cannot be created !');
+
+  res.send(feedItem);
+})
 module.exports = router;
