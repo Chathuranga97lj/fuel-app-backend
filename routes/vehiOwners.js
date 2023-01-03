@@ -1,5 +1,6 @@
 const {VehiOwner} = require('../models/vehiOwner');
 const express = require('express');
+const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 router.post('/register', async (req, res) => {
@@ -7,7 +8,7 @@ router.post('/register', async (req, res) => {
         name: req.body.name,
         vehiType: req.body.vehiType,
         userName: req.body.userName,
-        password: req.body.password
+        passwordHash: bcrypt.hashSync(req.body.password, 10)
     });
 
     vehiOwner = await vehiOwner.save();
