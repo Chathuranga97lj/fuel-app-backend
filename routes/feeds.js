@@ -36,4 +36,13 @@ router.put('/:id', async (req, res) => {
 
   res.send(feedItem);
 })
+
+router.get('/list', async (req, res) => {
+  const feedList = await Feed.find();
+
+  if (!feedList) {
+    res.status(500).json({ success: false })
+  }
+  res.send(feedList);
+})
 module.exports = router;
