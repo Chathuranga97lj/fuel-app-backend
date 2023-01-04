@@ -7,26 +7,14 @@ function authJwt() {
     return expressJwt({
         secret,
         algorithms: ['HS256'],
-        isRevoked: isRevoked
     }).unless({
         path: [
-            `${api}/vehiown/register`,
-            `${api}/shedown/register`,
             `${api}/vehiown/login`,
             `${api}/shedown/login`,
-
-            `${api}/shed/list`,
-            {url: /\/api\/shed(.*)/ , methods: ['PUT', 'OPTIONS'] },
+            `${api}/vehiown/register`,
+            `${api}/shedown/register`
         ]
     });
-}
-
-async function isRevoked(req, token) {
-    if (!token.payload.isAdmin) {
-        return true;
-    }
-
-    return false;
 }
 
 module.exports = authJwt;

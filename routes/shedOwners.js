@@ -37,8 +37,7 @@ router.post('/login', async (req, res) => {
     if(shedOwner && bcrypt.compareSync(req.body.password, shedOwner.passwordHash)){
         const token = jwt.sign(
             {
-                userName: shedOwner.userName,
-                isAdmin: shedOwner.isAdmin
+                shedOwnerId: shedOwner.id,
             },
             secret,
             {
@@ -47,6 +46,7 @@ router.post('/login', async (req, res) => {
         )
 
         return res.status(200).send({shedOwner: shedOwner.userName, token: token});
+
     } else {
         res.status(400).send('Password is Wrong !');
     }

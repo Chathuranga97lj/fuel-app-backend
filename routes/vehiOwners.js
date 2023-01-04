@@ -38,7 +38,6 @@ router.post('/login', async (req, res) => {
         const token = jwt.sign(
             {
                 userName: vehiOwner.userName,
-                isAdmin: vehiOwner.isAdmin
             },
             secret,
             {

@@ -13,11 +13,8 @@ const shedOwnerSchema = mongoose.Schema({
     passwordHash: {
         type: String,
         required: true
-    },
-    isAdmin: {
-        type: Boolean,
-        default: false,
     }
 });
+
 
 exports.ShedOwner = mongoose.model('ShedOwner', shedOwnerSchema);
