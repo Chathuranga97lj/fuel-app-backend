@@ -21,6 +21,14 @@ const shedSchema = mongoose.Schema({
     dieselVehicleCount: {
         type: Number,
         default: 0
+    },
+    averageWaitingTimePetrol: {
+        type: Number,
+        default: 0,
+    },
+    averageWaitingTimeDiesel: {
+        type: Number,
+        default: 0
     }
 })
 

@@ -45,4 +45,5 @@ router.get('/list', async (req, res) => {
   }
   res.send(feedList);
 })
+
 module.exports = router;
