@@ -26,6 +26,7 @@ router.put('/:id', async (req, res) => {
     req.params.id,
     {
       departTime: req.body.departTime,
+      isFilled: req.body.isFilled,
       isWaiting: false
     },
     { new: true }
