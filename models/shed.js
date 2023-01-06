@@ -13,6 +13,14 @@ const shedSchema = mongoose.Schema({
     availability:{
         type: Boolean,
         default: false,
+    },
+    petrolVehicleCount:{
+        type: Number,
+        default: 0
+    },
+    dieselVehicleCount: {
+        type: Number,
+        default: 0
     }
 })
 
