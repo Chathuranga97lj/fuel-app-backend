@@ -25,6 +25,10 @@ const feedSchema = mongoose.Schema({
     isWaiting: {
         type: Boolean,
         default: true
+    },
+    isFilled: {
+        type: Boolean,
+        default: false
     }
 });
 
