@@ -41,13 +41,11 @@ mongoose.connect(process.env.CONNECTION_STRING, {
     dbName: process.env.DB_NAME
 })
 .then(() => {
+    app.listen(process.env.PORT, () => {
+        console.log('Server is running !');
+    })
     console.log('Database connection is ready......');
 })
 .catch((err) => {
     console.log(err);
-})
-
-
-app.listen(process.env.PORT, () => {
-    console.log('Server is running !');
 })
